@@ -42,7 +42,7 @@ pub fn rust_oom(_layout: Layout) -> ! {
 #[start]
 pub fn main(_argc: isize, _argv: *const *const u8) -> isize {
     let c = unsafe { iconv_open(b"UTF-8\0".as_ptr() as _, b"UTF-8\0".as_ptr() as _) };
-    assert_ne!(c, -1);
+    assert_ne!(c, iconv_t::ERROR);
     let ok = unsafe { iconv_close(c) };
     assert_eq!(ok, 0);
     0

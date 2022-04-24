@@ -22,7 +22,7 @@ fn main() {
 #include <iconv.h>
 #include <limits.h>
 int main() {
-    printf("#[allow(non_camel_case_types)] type iconv_t = i%zd;\n", sizeof(iconv_t) * CHAR_BIT);
+    printf("type IconvTRaw = i%zd;\n", sizeof(iconv_t) * CHAR_BIT);
     return 0;
 }
 "##).unwrap_or_else(|_| panic!("cannot write {}", c_file_display));
