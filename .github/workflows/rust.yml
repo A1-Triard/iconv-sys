@@ -47,10 +47,7 @@ jobs:
         command: build
         args: "--verbose --release"
     - name: ensure_no_std build
-      uses: actions-rs/cargo@v1
-      with:
-        command: build
-        args: "--verbose -Z build-std=core,panic_abort --target ${{ matrix.triple }} --release"
+      run: "cargo +nightly build --verbose -Z build-std=core,panic_abort --target ${{ matrix.triple }} --release"
       working-directory: ensure_no_std
       if: "${{ matrix.triple != '' }}"
     - name: ensure_no_std run
