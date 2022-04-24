@@ -47,7 +47,7 @@ jobs:
         command: build
         args: "--verbose --release"
     - name: rustup component add rust-src
-      run: "rustup component add rust-src --toolchain ${{ matrix.triple }}"
+      run: "rustup component add rust-src --toolchain nightly-${{ matrix.triple }}"
       if: "${{ matrix.triple != '' }}"
     - name: ensure_no_std build
       run: "cargo +nightly build --verbose -Z build-std=core,panic_abort --target ${{ matrix.triple }} --release"
