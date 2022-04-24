@@ -1,14 +1,14 @@
 [package]
 edition = "2021"
 name = "iconv-sys"
-version = "0.0.1"
+version = "0.0.2"
 rust-version = "1.59"
 authors = ["warlock <internalmike@gmail.com>"]
 description = "Raw FFI binding to iconv functions."
 readme = "README.md"
 documentation = "https://docs.rs/iconv-sys/"
 keywords = ["iconv", "ncurses", "screen"]
-categories = ["external-ffi-bindings", "os::unix-apis", "no_std"]
+categories = ["external-ffi-bindings", "os::unix-apis", "no-std"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/A1-Triard/iconv-sys"
 
