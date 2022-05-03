@@ -1,4 +1,4 @@
-name: Rust
+name: CI
 
 on:
   push:
@@ -58,3 +58,8 @@ jobs:
     - name: ensure_no_std run
       run: "./ensure_no_std/target/${{ matrix.triple }}/release/ensure_no_std"
       if: "${{ matrix.triple != '' }}"
+    - name: outdated
+      uses: actions-rs/cargo@v1
+      with:
+        command: outdated
+        args: "--verbose --aggresssive --root-deps-only --exit-code 1"
