@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macOS-latest]
-        rust: ["1.59", stable, beta, nightly]
+        rust: ["1.59", stable, beta]
         triple: [""]
         include:
         - os: ubuntu-latest
@@ -63,3 +63,10 @@ jobs:
       with:
         command: outdated
         args: "--verbose --aggresssive --root-deps-only --exit-code 1"
+    - name: rustup component add clippy
+      run: "rustup component add clippy"
+    - name: clippy
+      uses: actions-rs/cargo@v1
+      with:
+        command: clippy
+        args: "--verbose"
