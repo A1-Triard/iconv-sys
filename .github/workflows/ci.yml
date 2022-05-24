@@ -24,6 +24,10 @@ jobs:
       if: "${{ matrix.os == 'ubuntu-latest' }}"
     - run: echo "triple=x86_64-apple-darwin" >> $GITHUB_ENV
       if: "${{ matrix.os == 'macOS-latest' }}"
+    - run: echo "cross=i686-unknown-linux-gnu" >> $GITHUB_ENV
+      if: "${{ matrix.os == 'ubuntu-latest' }}"
+    - run: echo "cross=i686-apple-darwin" >> $GITHUB_ENV
+      if: "${{ matrix.os == 'macOS-latest' }}"
     - uses: actions/checkout@v2
     - uses: actions-rs/toolchain@v1
       with:
@@ -66,3 +70,7 @@ jobs:
       with:
         command: clippy
         args: "--verbose"
+    - name: rustup target add cross
+      run: "rustup target add ${{ env.cross }}"
+    - name: crosscompile
+      run: "cargo build --target ${{ env.cross }}"
