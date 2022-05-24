@@ -19,4 +19,4 @@ libc = { version = "0.2.124", default-features = false }
 cc = "1.0.73"
 
 [badges]
-maintenance = { status = "depricated" }
+maintenance = { status = "deprecated" }
