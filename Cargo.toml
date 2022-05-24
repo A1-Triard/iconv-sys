@@ -1,7 +1,7 @@
 [package]
 edition = "2021"
 name = "iconv-sys"
-version = "0.0.3"
+version = "0.0.4"
 rust-version = "1.59"
 authors = ["warlock <internalmike@gmail.com>"]
 description = "Raw FFI binding to iconv functions."
@@ -17,3 +17,6 @@ libc = { version = "0.2.124", default-features = false }
 
 [build-dependencies]
 cc = "1.0.73"
+
+[badges]
+maintenance = { status = "depricated" }
