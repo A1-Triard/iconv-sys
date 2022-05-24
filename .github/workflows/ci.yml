@@ -18,7 +18,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, macOS-latest]
         rust: ["1.59", stable, beta, nightly]
-    runs-on: ${{ matrix.os[1] }}
+    runs-on: ${{ matrix.os }}
     steps:
     - run: echo "triple=x86_64-unknown-linux-gnu" >> $GITHUB_ENV
       if: "${{ matrix.os == 'ubuntu-latest' }}"
